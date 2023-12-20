@@ -19,7 +19,7 @@ export default function SelectGenre({ genres, type }) {
             {
                 genres.map((genre) => {
                     return (
-                        <option value={genre.id} id={genre.id}>{genre.name}</option>
+                        <option key={genre.id} value={genre.id} id={genre.id}>{genre.name}</option>
                     )
                 })
             }

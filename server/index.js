@@ -2,7 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import mongoose from 'mongoose';
 import * as dotenv from 'dotenv';
-import UserRoutes from './routes/UserRoutes.js';
+import userRoutes from './routes/UserRoutes.js';
 
 dotenv.config();
 
@@ -13,7 +13,7 @@ app.use(express.json());
 
 mongoose.connect(process.env.MONGODB_URI).then(() => console.log('Connected to MongoDB')).catch((e) => console.error(e));
 
-app.use('/api/user', UserRoutes);
+app.use('/api/user', userRoutes);
 
 const PORT = process.env.PORT;
 

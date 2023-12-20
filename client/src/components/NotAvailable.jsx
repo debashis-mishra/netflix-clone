@@ -1,10 +1,9 @@
 import React from 'react'
 
-export default function 
-() {
+export default function NotAvailable() {
   return (
     <h1 className='not-available'>
-        No Movies Available for selected Genre
+      No Movies Available for selected Genre
     </h1>
   )
 }

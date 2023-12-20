@@ -81,8 +81,8 @@ export default React.memo(
                     >
                         <AiOutlineLeft onClick={() => handleDirection("left")} />
                     </div>
-                    <div className="flex slider" ref={listRef}>
-                        {data.map((movie, index) => {
+              <div className="flex slider" ref={listRef}>
+                        { data && data.map((movie, index) => {
                             return <Card key={movie.id} movieData={movie} index={index} />;
                         })}
                     </div>

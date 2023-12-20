@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 import { fetchMovies, getGenres } from '../store';
-import { onAuthStateChanged } from 'firebase/auth';
-import { firebaseAuth } from '../utils/firebase-config';
+// import { onAuthStateChanged } from 'firebase/auth';
 import styled from 'styled-components';
 import Navbar from './../components/Navbar';
 import Slider from '../components/Slider';
@@ -25,7 +23,7 @@ const Container = styled.div`
 export default function Movies() {
     const [isScrolled, setIsScrolled] = useState(false);
 
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
 
     const genresLoaded = useSelector((state) => state.netflix.genresLoaded);
 
@@ -36,21 +34,21 @@ export default function Movies() {
 
     useEffect(() => {
         dispatch(getGenres());
-    }, []);
+    }, [dispatch]);
 
     useEffect(() => {
         if (genresLoaded)
             dispatch(fetchMovies({ type: "movies" }));
-    },[genresLoaded]);
+    }, [dispatch, genresLoaded]);
 
     window.onscroll = () => {
         setIsScrolled(window.scrollY === 0 ? false : true);
         return () => (window.onscroll = null);
     };
 
-    onAuthStateChanged(firebaseAuth, (user) => {
-        // if (user) navigate("/");
-    });
+    // onAuthStateChanged(firebaseAuth, (user) => {
+    // if (user) navigate("/");
+    // });
 
 
     return (
