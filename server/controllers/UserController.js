@@ -41,7 +41,7 @@ const removeFromLikedMovies = async (req, res) => {
         if (user) {
             const movies = user.likedMovies;
             const movieIndex = movies.findIndex(({ id }) => id === movieId);
-            if (!movieIndex) {
+            if (movieIndex < 0) {
                 res.status(400).send({ msg: "Movie not found." });
             }
             movies.splice(movieIndex, 1);

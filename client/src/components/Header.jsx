@@ -17,10 +17,6 @@ const Button = styled.button`
     font-size: 1.05rem;
 `
 
-// const Logo = styled.div`
-//     height: 5rem;
-// `
-
 const Logo = styled.img`
     height: 5rem;
 `
@@ -29,9 +25,6 @@ function Header(props) {
     const navigate = useNavigate();
     return (
         <Container className='flex a-center j-between'>
-            {/* <Logo className="logo">
-                <img src={logo} alt="logo" />
-            </Logo> */}
             <div className="logo">
                 <Logo src={logo} alt="logo" />
             </div>

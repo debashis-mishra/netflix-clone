@@ -1,5 +1,5 @@
 import { configureStore, createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { API_KEY, TMDB_BASE_URL } from './../utils/constants';
+import { HOST, API_KEY, TMDB_BASE_URL } from './../utils/constants';
 import axios from 'axios';
 
 const initialState = {
@@ -53,13 +53,13 @@ export const fetchDataByGenre = createAsyncThunk("netflix/moviesByGenres", async
 })
 
 export const getUserLikedMovies = createAsyncThunk("netflix/getLiked", async (email) => {
-    const { data: { movies } } = await axios.get(`http://localhost:3000/api/user/liked/${email}`);
+    const { data: { movies } } = await axios.get(`${HOST}/api/user/liked/${email}`);
     console.log(movies.flat());
     return movies;
 })
 
 export const removeFromLikedMovies = createAsyncThunk("netflix/deleteLiked", async ({ movieId, email }) => {
-    const { data: { movies } } = await axios.put(`http://localhost:3000/api/user/remove`, { email, movieId });
+    const { data: { movies } } = await axios.put(`${HOST}/api/user/remove`, { email, movieId });
     return movies;
 })
 

@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { createUserWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
+import {
+  createUserWithEmailAndPassword,
+  onAuthStateChanged,
+} from "firebase/auth";
 import BackgroundImage from "../components/BackgroundImage.jsx";
 import Header from "../components/Header.jsx";
-import { firebaseAuth } from './../utils/firebase-config.js';
+import { firebaseAuth } from "./../utils/firebase-config.js";
 import { useNavigate } from "react-router-dom";
 
 const Container = styled.div`
@@ -23,10 +26,10 @@ const Container = styled.div`
 `;
 
 const Form = styled.div`
- display: grid;
- grid-template-columns: ${({ showPassword }) =>
-    showPassword ? "1fr 1fr" : "2fr 1fr"}})};
- width: 60%;
+  display: grid;
+  grid-template-columns: ${({ showPassword }) =>
+    showPassword ? "1fr 1fr" : "2fr 1fr"};
+  width: 60%;
 `;
 
 const Input = styled.input`
@@ -78,19 +81,19 @@ const Signup = () => {
     email: "",
     password: "",
   });
-  const navigate  = useNavigate();
+  const navigate = useNavigate();
 
   const handleSignIn = async () => {
     try {
       const { email, password } = formValues;
       await createUserWithEmailAndPassword(firebaseAuth, email, password);
     } catch (error) {
-      console.error(error)
+      console.error(error);
     }
-  }
+  };
 
   onAuthStateChanged(firebaseAuth, (user) => {
-    if (user) navigate('/');
+    if (user) navigate("/");
   });
 
   return (
@@ -115,7 +118,12 @@ const Signup = () => {
               placeholder="Email Address"
               name="email"
               value={formValues.email}
-              onChange={(e) => setFormValues({ ...formValues, [e.target.name]: e.target.value })}
+              onChange={(e) =>
+                setFormValues({
+                  ...formValues,
+                  [e.target.name]: e.target.value,
+                })
+              }
             />
             {showPassword && (
               <Input
@@ -123,7 +131,12 @@ const Signup = () => {
                 placeholder="Password"
                 name="password"
                 value={formValues.password}
-                onChange={(e) => setFormValues({ ...formValues, [e.target.name]: e.target.value })}
+                onChange={(e) =>
+                  setFormValues({
+                    ...formValues,
+                    [e.target.name]: e.target.value,
+                  })
+                }
               />
             )}
             {!showPassword && (

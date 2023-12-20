@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchMovies, getGenres } from '../store';
-// import { onAuthStateChanged } from 'firebase/auth';
 import styled from 'styled-components';
 import Navbar from './../components/Navbar';
 import Slider from '../components/Slider';
@@ -45,10 +44,6 @@ export default function Movies() {
         setIsScrolled(window.scrollY === 0 ? false : true);
         return () => (window.onscroll = null);
     };
-
-    // onAuthStateChanged(firebaseAuth, (user) => {
-    // if (user) navigate("/");
-    // });
 
 
     return (
