@@ -1,0 +1,10 @@
+import React from 'react'
+
+export default function 
+() {
+  return (
+    <h1 className='not-available'>
+        No Movies Available for selected Genre
+    </h1>
+  )
+}
