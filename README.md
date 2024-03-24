@@ -2,6 +2,7 @@
 # Netflix Clone
 
 Users can sign up and log in. Logged in users can view movies, TV shows, etc; get videos according to specific genres of their wish and add them to their watchlist.
+
 ## Tech Stack
 
 **Client:** React, Redux
@@ -11,6 +12,7 @@ Users can sign up and log in. Logged in users can view movies, TV shows, etc; ge
 **Database:** MongoDB
 
 **Authentication**: Firebase, JWT
+
 ## Run Locally
 
 Clone the project
